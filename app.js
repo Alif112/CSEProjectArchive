@@ -47,6 +47,7 @@ app.set('views', [path.join(__dirname, 'views'),
                   path.join(__dirname, 'views/students'),
                   path.join(__dirname, 'views/addform'),
                   path.join(__dirname, 'views/teacherprofile')
+        
 
 ]);
 app.set('view engine', 'ejs');
@@ -94,8 +95,8 @@ app.use('/students', express.static(path.join(__dirname, 'public'), options));
 app.use('/students/update', express.static(path.join(__dirname, 'public'), options));
 
 app.use('/teachers', express.static(path.join(__dirname, 'public'), options));
-app.use('/students/addteaher', express.static(path.join(__dirname, 'public'), options));
-
+app.use('/teachers/addteacher', express.static(path.join(__dirname, 'public'), options));
+app.use('/teachers/profile', express.static(path.join(__dirname, 'public'), options));
 
 
 

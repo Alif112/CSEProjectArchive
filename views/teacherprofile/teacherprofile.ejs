@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Project</title>
+  <meta charset="utf-8">
+  <link href='/css/teacher/teacherprofile.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
+
+  <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/custom/subjects.css">
+
+  <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="js/cufon-yui.js"></script>
+  <script type="text/javascript" src="js/cufon-replace.js"></script>
+  <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
+  <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body id="page1">
+  <!-- START PAGE SOURCE -->
+  <div class="wrap">
+    <header>
+      <div class="container">
+        <h1><a href="#">CSE Project Archive</a></h1>
+        <nav>
+          <ul>
+            <li><a href="/index" class="m1">Home Page</a></li>
+            <li class="current"><a href="/subjects" class="m2">Subjects</a></li>
+            <li><a href="/batches" class="m3">Batches</a></li>
+            <li><a href="/projects" class="m4">Projects</a></li>
+            <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <form action="/search" id="search-form">
+          <fieldset>
+            <div class="rowElem">
+              <input type="text">
+              <a href="/search">Search</a></div>
+          </fieldset>
+        </form>
+      </div>
+    </header>
+    <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+      <br>
+      <h3>Our Honourable Teachers</h3>
+    </div>
+    <div class="container" id="teacherprofile">
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+
+        <%for(var i=0;i<100;i++){ %>
+
+            <%if(i%4==0){%>
+
+
+            <%}%>
+
+            <div class="col-lg-3 col-xs-6" id="itsok">
+              <!-- small box -->
+
+
+
+                <div class="flip-container">
+                    <div class="flipper">
+                        <div class="front">
+                            <img src="http://lh4.googleusercontent.com/-Q496g4B9fZM/AAAAAAAAAAI/AAAAAAAAA-Q/R6lBS2H9CtQ/s512-c/photo.jpg" />
+                            <p>Abhay, Makadia</p>
+                            <div class="sub">
+                                <p>Web Developer/Designer</p>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <p id="titulo">Abhay Makadia</p>
+                            <p>Web Developer/Designer</p>
+                            <p>Country: India</p>
+                            <p>Birth: 6<sup>th</sup> Jan 1990</p>
+                            <a href="https://www.facebook.com/MADLogics" id="social" class="social">f</a>
+                            <a href="https://twitter.com/Abhay_Makadia" class="social">t</a>
+                            <a href="https://www.linkedin.com/pub/abhay-makadia/57/622/124‎" class="social">in</a>
+                            <a href="https://plus.google.com/103263344673014509508/posts" class="social">g+</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <%}%>
+
+
+      </div>
+
+
+
+  </div>
+  <footer>
+    <div class="footerlink">
+      <p class="lf">Copyright &copy; 2017 <a href="#">SiteName</a> - All Rights Reserved</p>
+      <p class="rf">Design by <a href="#">SUST</a></p>
+      <div style="clear:both;"></div>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    Cufon.now();
+  </script>
+
+
+  <!-- END PAGE SOURCE -->
+</body>
+
+</html>
