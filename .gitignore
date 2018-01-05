@@ -8,3 +8,4 @@ reports/
 node_modules
 npm-debug.log
 public/profile
+public/teacher
