@@ -35,7 +35,7 @@
     }
   </style>
 </head>
-
+<%include partials/loginModel.ejs%>
 <body id="page1">
   <!-- START PAGE SOURCE -->
   <div class="wrap">
@@ -52,115 +52,16 @@
           </ul>
         </nav>
 
-        <form action="#" id="search-form">
+        <!-- <form action="#" id="search-form">
           <fieldset>
             <div class="rowElem">
               <input type="text">
               <a href="#">Search</a></div>
           </fieldset>
-        </form>
+        </form> -->
       </div>
     </header>
     <div class="container">
-      <section>
-        <div class="col-md-2">
-
-        </div>
-        <div class="col-md-10">
-
-          <table class="blueTable">
-
-            <tbody>
-
-              <tr>
-                <td>Project Title :</td>
-                <td>
-                  <%="CSE Project Arcieve"%>
-                </td>
-              </tr>
-              <tr>
-                <td>Batch:</td>
-                <td>
-                  <%="2013"%>
-                </td>
-              </tr>
-              <tr>
-                <td>Course Name:</td>
-                <td>
-                  <%="Web"%>
-                </td>
-              </tr>
-              <tr>
-                <td>Project Link:</td>
-                <td>
-                  <a href="<%=" link "%>">
-                    <%="link"%>
-                  </a>
-
-                </td>
-              </tr>
-              <tr>
-                <td>Tags:</td>
-                <td>
-                  <a href="<%=" tags "%>">
-                    <%="tags"%>
-                  </a>
-                </td>
-              </tr>
-
-
-            </tbody>
-          </table>
-
-        </div>
-      </section>
-      <section id="left">
-        <section class="team">
-          <div class="">
-            <div class="row">
-              <div class="col-md-10 col-md-offset-1">
-                <div class="col-lg-12">
-                  <h6 class="description">OUR TEAM Members</h6>
-                  <div class="row pt-md">
-                    <%
-                    for(var i=0;i<3;i++){%>
-                      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-                        <div class="img-box">
-                          <img src="img/1.jpg" class="img-responsive">
-                        </div>
-                        <h1>Marrie Doi</h1>
-
-                      </div>
-                      <%}%>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div id="supervisor">
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <div class="col-lg-12">
-                <h6 class="description">Supervisor</h6>
-                <div class="row pt-md">
-
-                  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-                    <div class="img-box">
-                      <img src="img/1.jpg" class="img-responsive">
-                    </div>
-                    <h1>Marrie Doi</h1>
-
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
     </div>

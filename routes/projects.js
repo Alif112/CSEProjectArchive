@@ -9,7 +9,17 @@ router.get('/', Projects.findProjects);
 router.get('/tags/:tag', Projects.findTagProjects);
 
 
-router.get('/add', function(req, res) {
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    // req.flash('error_msg', 'You are not logged in');
+    res.redirect('/');
+    //return next();
+  }
+
+}
+router.get('/add',ensureAuthenticated, function(req, res) {
   Teachers.find({}, function(err, results) {
     if (err) throw err;
     //console.log(results);
@@ -19,6 +29,7 @@ router.get('/add', function(req, res) {
   });
 
 });
+
 router.post('/add', Projects.addproject);
 
 router.get('/:id', Projects.showProject);

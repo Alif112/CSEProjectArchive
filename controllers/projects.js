@@ -1,5 +1,6 @@
 var Projects = require('../models/project');
 var Users = require('../models/user');
+var Teachers = require('../models/teacher');
 
 exports.findProjects = function(req, res) {
   Projects.find({}, function(err, results) {
@@ -42,6 +43,8 @@ exports.showProject = function(req, res, next) {
       if (results.toString() === '') {
         res.redirect('/projects');
       }
+
+
       var users = [];
       //{$or:[{"reg":"2013333333"},{"reg":"2000000454"}]}
       for (var i = 0; i < results[0].teammembers.length; i++) {
@@ -53,11 +56,20 @@ exports.showProject = function(req, res, next) {
         $or: users
       }, function(err, members) {
         if (err) throw err;
-        console.log(members);
-        res.render('project', {
-          results: results,
-          members: members
+        Teachers.findOne({
+          _id: results[0].supervisorId
+        }, function(err, supervisor) {
+
+          if (err) throw err;
+
+          console.log(supervisor);
+          res.render('project', {
+            results: results,
+            members: members,
+            supervisor:supervisor
+          });
         });
+
 
       });
       // console.log(users);
@@ -73,8 +85,10 @@ exports.addproject = function(req, res, next) {
   var link = req.body.link;
   var description = req.body.description;
   var teammembers = [];
-  var supervisor = req.body.supervisor;
+  var supervisorId = req.body.supervisor;
   var tags = [];
+  console.log("=========================================");
+  //console.log(supervisor);
   for (var i = 0; i < 100; i++) {
     var temp = 'field' + i;
     if (req.body[temp]) {
@@ -94,7 +108,7 @@ exports.addproject = function(req, res, next) {
     coursename: coursename,
     batch: batch,
     teammembers: teammembers,
-    supervisor: supervisor,
+    supervisorId: supervisorId,
     tags: tags,
     link: link,
     description: description

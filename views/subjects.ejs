@@ -2,102 +2,84 @@
 <html lang="en">
 
 <head>
-  <title>Project</title>
+  <title>Search</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/AdminLTE.min.css">
-  <link rel="stylesheet" href="css/ionicons.min.css">
-  
-  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="css/uniform.css">
+  <link rel="stylesheet" href="css/select2.css">
+  <link rel="stylesheet" href="css/matrix-style.css">
+  <link rel="stylesheet" href="css/matrix-media.css">
+  <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet" type="text/css">
+
+
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"> -->
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/custom/subjects.css">
 
-  <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
 </head>
+<%include partials/loginModel.ejs%>
 
-<body id="page1">
-  <!-- START PAGE SOURCE -->
-  <div class="wrap">
-    <header>
-      <div class="container">
-        <h1><a href="#">CSE Project Archive</a></h1>
-        <nav>
+  <body id="page1">
+    <!-- START PAGE SOURCE -->
+    <div class="wrap">
+      <header>
+        <div class="container">
+          <h1><a href="#">CSE Project Archive</a></h1>
+          <%include partials/topnavbar.ejs%>
+
+            <!-- <nav>
           <ul>
             <li><a href="/index" class="m1">Home Page</a></li>
-            <li class="current"><a href="/subjects" class="m2">Subjects</a></li>
-            <li><a href="/batches" class="m3">Batches</a></li>
+            <li><a href="/subjects" class="m2">Subjects</a></li>
+            <li class="current"><a href="/batches" class="m3">Batches</a></li>
             <li><a href="/projects" class="m4">Projects</a></li>
             <li class="last"><a href="/contact" class="m5">Contact Us</a></li>
           </ul>
-        </nav>
+        </nav> -->
+        </div>
+      </header>
+      <div class="container">
+        <aside>
+          <h3>Categories</h3>
+          <ul class="categories">
+            <li><span><a href="/index">Home</a></span></li>
+            <li><span><a  href="/subjects">Subjects</a></span></li>
+            <li><span><a id="selected" href="/batches">Batches</a></span></li>
+            <li><span><a href="/projects">All projects</a></span></li>
+            <li><span><a href="/students">Student Info</a></span></li>
+            <li><span><a href="/teachers">Teachers</a></span></li>
+            <!-- <li><span><a data-toggle="modal" href="demopic#myModal"> Admin Login</a></span></li> -->
+            <!-- <li class="last"><span><a href="/contact">About Us</a></span></li> -->
+          </ul>
+        </aside>
+        <section id="content" style=" width: 750px;">
+          <%include partials/projectTable.ejs%>
+        </section>
 
-        <form action="/search" id="search-form">
-          <fieldset>
-            <div class="rowElem">
-              <input type="text">
-              <a href="/search">Search</a></div>
-          </fieldset>
-        </form>
       </div>
-    </header>
-    <div class="container">
-      <aside>
-        <h3>Categories</h3>
-        <ul class="categories">
-          <li><span><a href="/index">Home</a></span></li>
-          <li><span><a id="selected" href="/subjects">Subjects</a></span></li>
-          <li><span><a href="/batches">Batches</a></span></li>
-          <li><span><a href="/projects">All projects</a></span></li>
-          <li><span><a href="/students">Student Info</a></span></li>
-          <li><span><a href="/teachers">Teachers</a></span></li>
-          <li><span><a href="/admin">Administrators</a></span></li>
-          <li class="last"><span><a href="/contact">About Us</a></span></li>
-        </ul>
-      </aside>
-      <section id="subcontent">
-        <%for(var i=0;i<10;i++){
-          if(i%4==0) {%><br><br>
-          <%}%>
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-light-blue">
-                <div class="inner hov">
-                  <h3 style="color:#000000;"><%=44+i%></h3>
-                  <p>Projects</p>
-                  <p>Batch
-                    <%=2005+i%>
-                  </p>
-                </div>
-                <!-- <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div> -->
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <%}%>
-      </section>
-
-
     </div>
-  </div>
-  <footer>
-    <div class="footerlink">
-      <p class="lf">Copyright &copy; 2017 <a href="#">SiteName</a> - All Rights Reserved</p>
-      <p class="rf">Design by <a href="#">SUST</a></p>
-      <div style="clear:both;"></div>
-    </div>
-  </footer>
-  <script type="text/javascript">
-    Cufon.now();
-  </script>
+    <footer>
+      <div class="footerlink">
+        <p class="lf">Copyright &copy; 2017 <a href="#">SiteName</a> - All Rights Reserved</p>
+        <p class="rf">Design by <a href="#">SUST</a></p>
+        <div style="clear:both;"></div>
+      </div>
+    </footer>
+    <script type="text/javascript">
+      Cufon.now();
+    </script>
 
 
-  <!-- END PAGE SOURCE -->
-</body>
+    <!-- END PAGE SOURCE -->
+  </body>
 
 </html>

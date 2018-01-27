@@ -40,13 +40,6 @@
           </ul>
         </nav>
 
-        <!-- <form action="/search" id="search-form">
-          <fieldset>
-            <div class="rowElem">
-              <input type="text">
-              <a href="/search">Search</a></div>
-          </fieldset>
-        </form> -->
       </div>
     </header>
     <div class="container">
@@ -56,100 +49,29 @@
           <li><span><a href="/admin/dashboard">Dashboard</a></span></li>
           <li><span><a href="/adduser">Add Students</a></span></li>
           <li><span><a href="/teachers/addteacher">Add Teachers</a></span></li>
-          <li><span><a href="/admin/addbatch">Add Batch</a></span></li>
+          <li><span><a id="selected" href="/admin/addbatch">Add Batch</a></span></li>
           <li><span><a href="/admin/addcourse">Add Course</a></span></li>
-          <li><span><a id="selected" href="/projects/add">Add Projects</a></span></li>
+          <li><span><a href="/projects/add">Add Projects</a></span></li>
           <li><span><a href="/admin/logout">Log Out</a></span></li>
 
         </ul>
       </aside>
       <section id="addproject">
 
-        <form class="form-horizontal" action="/projects/add" method="post">
+        <form class="form-horizontal" action="/admin/addbatch" method="post">
           <fieldset>
+            <br><br>
 
 
-            <!-- Text input-->
-
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="title">Project Title</label>
-              <div class="col-md-4">
-                <input id="title" name="title" type="text" placeholder="Give a title" class="form-control input-md" required>
-
-              </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label">Course Name</label>
-              <div class="col-md-4">
-                <input name="coursename" type="text" placeholder="Course Name" class="form-control input-md">
-
-              </div>
-            </div>
             <!-- Text input-->
             <div class="form-group">
               <label class="col-md-4 control-label">Batch</label>
               <div class="col-md-4">
-                <input name="batch" type="text" placeholder="2013" class="form-control input-md">
+                <input name="batch" type="number" placeholder="2013" min=2010 max=2025 class="form-control input-md">
 
               </div>
             </div>
 
-            <!-- Appended Input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="appendedtext">Team Member</label>
-              <div class="col-md-6">
-
-                <div id="field">
-                  <input autocomplete="off" class="input form-control" id="field1" name="field1" type="text" placeholder="Registration Number" data-items="8" />
-                  <button id="b1" class="btn add-more" type="button">+</button>
-                </div>
-
-              </div>
-            </div>
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label">Supervisor</label>
-              <div class="col-md-6">
-                <select name="supervisor" class="form-control">
-                <%for (var teacher in results) {%>
-                  <option value="<%=results[teacher]._id%>"><%=results[teacher].name%>-<%=results[teacher].designation%></option>
-                <%}%>
-
-						</select>
-              </div>
-            </div>
-
-            <!-- Appended Input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="appendedtext">Tags</label>
-              <div class="col-md-6">
-
-                <div id="tag">
-                  <input autocomplete="off" class="input form-control" id="tag1" name="tag1" type="text" placeholder="Tag" data-items="8" />
-                  <button id="tb1" class="btn add-more-tag" type="button">+</button>
-                </div>
-
-              </div>
-            </div>
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="link">Project Link</label>
-              <div class="col-md-4">
-                <input id="link" name="link" type="text" placeholder="give a project link" class="form-control input-md">
-
-              </div>
-            </div>
-
-
-            <!-- Textarea -->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="description">Project Description</label>
-              <div class="col-md-6">
-                <textarea class="form-control" id="description" name="description" placeholder="Give a short description"></textarea>
-              </div>
-            </div>
 
           </fieldset>
           <div class="form-actions">

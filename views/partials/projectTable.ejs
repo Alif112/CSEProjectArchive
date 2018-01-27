@@ -1,0 +1,63 @@
+<div class="widget-box">
+  <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+    <h5>Student table</h5>
+  </div>
+  <div class="widget-content nopadding">
+    <table class="table table-bordered data-table">
+      <thead>
+        <tr>
+          <th>Batch</th>
+          <th>Course Name</th>
+          <th>Project Title</th>
+          <th>Team Members</th>
+          <th>Tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0;i<results.length;i++){ %>
+          <tr>
+            <td>
+              <a href="/projects/<%= results[i]._id %>">
+              <%=results[i].batch%>
+              </a>
+            </td>
+            <td>
+                <a href="/projects/<%= results[i]._id %>">
+              <%= results[i].coursename %>
+              </a>
+            </td>
+            <td>
+                <a href="/projects/<%= results[i]._id %>">
+              <%= results[i].title %>
+              </a>
+            </td>
+            <td>
+              <a href="/projects/<%= results[i]._id %>">
+                <%= results[i].teammembers %>
+              </a>
+            </td>
+
+            <td>
+                <a href="/projects/<%= results[i]._id %>">
+              <%= results[i].tags %>
+              </a>
+            </td>
+          </tr>
+
+          <%}%>
+      </tbody>
+    </table>
+  </div>
+</div>
+</script>
+<script src="extra/jquery.min.js"></script>
+<script src="extra/jquery.ui.custom.js"></script>
+<script src="extra/bootstrap.min.js"></script>
+<script src="extra/jquery.uniform.js"></script>
+<script src="extra/select2.min.js"></script>
+<script src="extra/jquery.dataTables.min.js"></script>
+<script src="extra/matrix.js"></script>
+<script src="extra/matrix.tables.js"></script>
+
+
+<ul class="typeahead dropdown-menu"></ul>
