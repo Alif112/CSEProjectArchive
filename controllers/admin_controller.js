@@ -65,8 +65,13 @@ exports.addCoursepost = function(req, res, next) {
 
 
   Courses.find({
-    courseTitle: req.body.coursename,
-    batch: req.body.batch
+    $and: [{
+        courseTitle: req.body.coursename
+      },
+      {
+        batch: req.body.batch
+      }
+    ]
   }, function(err, results) {
     console.log(results);
     if (err) return console.error(err);
@@ -74,7 +79,7 @@ exports.addCoursepost = function(req, res, next) {
       res.send("Already Exist");
 
     } else {
-      console.log('uploading data---- in post teacherdataupload');
+      console.log('uploading data---- in post courseadd');
       var course = new Courses({
         courseTitle: req.body.coursename,
         batch: req.body.batch
@@ -83,6 +88,7 @@ exports.addCoursepost = function(req, res, next) {
       course.save(function(err, results) {
         if (err) throw err;
         //console.log(results._id);
+        console.log(results);
         res.redirect("/admin/dashboard");
       });
     }

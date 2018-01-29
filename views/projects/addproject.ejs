@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/addproject.css">
 
   <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
   <script type="text/javascript" src="js/Myriad_Pro_300.font.js"></script>
@@ -40,13 +41,6 @@
           </ul>
         </nav>
 
-        <!-- <form action="/search" id="search-form">
-          <fieldset>
-            <div class="rowElem">
-              <input type="text">
-              <a href="/search">Search</a></div>
-          </fieldset>
-        </form> -->
       </div>
     </header>
     <div class="container">
@@ -78,6 +72,33 @@
 
               </div>
             </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label">Batch</label>
+              <div class="col-md-4">
+                <!-- <input name="batch" type="text" placeholder="2013" class="form-control input-md"> -->
+                <select id="get-click" name="batch" class="form-control">
+                  <option value="null">Choose Batch</option>
+                <%for (var batch in batches) {%>
+                  <option value="<%=batches[batch].batch%>"><%=batches[batch].batch%></option>
+                <%}%>
+
+                </select>
+              </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label">Course</label>
+              <div class="col-md-4">
+                <!-- <input name="batch" type="text" placeholder="2013" class="form-control input-md"> -->
+                <select id="selectId" name="batch" class="form-control">
+                <!-- <%for (var batch in batches) {%>
+                  <option value="<%=batches[batch].batch%>"><%=batches[batch].batch%></option>
+                <%}%> -->
+
+                </select>
+              </div>
+            </div>
 
             <!-- Text input-->
             <div class="form-group">
@@ -87,14 +108,7 @@
 
               </div>
             </div>
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label">Batch</label>
-              <div class="col-md-4">
-                <input name="batch" type="text" placeholder="2013" class="form-control input-md">
 
-              </div>
-            </div>
 
             <!-- Appended Input-->
             <div class="form-group">
@@ -113,11 +127,11 @@
               <label class="col-md-4 control-label">Supervisor</label>
               <div class="col-md-6">
                 <select name="supervisor" class="form-control">
-                <%for (var teacher in results) {%>
-                  <option value="<%=results[teacher]._id%>"><%=results[teacher].name%>-<%=results[teacher].designation%></option>
+                <%for (var teacher in teachers) {%>
+                  <option " value="<%=teachers[teacher]._id%>"><%=teachers[teacher].name%>-<%=teachers[teacher].designation%></option>
                 <%}%>
 
-						</select>
+						        </select>
               </div>
             </div>
 
@@ -227,6 +241,33 @@
 
     });
   </script>
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+      $("#get-click").change(function() {
+        var id = $(this).find(":selected").val();
+        console.log(id)
+        $.ajax({
+          url: "/projects/coursename?batch=" + id,
+          // data: JSON.stringify(clientID),
+          // type: 'POST',
+          contentType: 'application/json; charset=utf-8',
+          success: function(data) {
+          //  console.log(data);
+            // var option = $('<option></option>').attr("value", "option value").text("Text");
+            // var option2 = $('<option></option>').attr("value", "option value").text("Text2");
+            var $el = $("#selectId");
+            $el.empty(); // remove old options
+            $.each(data, function(key, value) {
+              console.log(value);
+              $el.append($("<option></option>")
+                .attr("value", value.courseTitle).text(value.courseTitle));
+            });
+          }
+        });
+      });
+    });
+  </script>
+
   <!-- <script type="text/javascript" src="extra/jquery.min.js"></script> -->
 
 
